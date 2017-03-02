@@ -67,7 +67,7 @@ static PIN_State ledPinState;
  */
 PIN_Config ledPinTable[] = {
     Board_LED0 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    //Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
 
@@ -79,9 +79,7 @@ PIN_Config ledPinTable[] = {
 Void dusk2dawnFxn(UArg arg0, UArg arg1)
 {
     while (1) {
-        Task_sleep((UInt)arg0);
-        PIN_setOutputValue(ledPinHandle, Board_LED0,
-                           !PIN_getOutputValue(Board_LED0));
+
     }
 }
 
