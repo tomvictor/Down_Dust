@@ -161,7 +161,7 @@ adcReadFifo(output.adcValue);
 adcDisable();
 
 U16 oldState = state.dawn;
-if (out.adcValue > cfg.threshold) {
+if (output.adcValue > cfg.threshold) {
     state.dawn = 1; // Dawn
     gpioClearOutput(AUXIO_O_GREEN_LED);
 } else {
@@ -188,7 +188,7 @@ adcSelectGpioInput(AUXIO_A_ADC_INPUT);
 // Schedule the first execution
 fwScheduleTask(1);]]></sccode>
         <sccode name="terminate"><![CDATA[]]></sccode>
-        <tt_iter></tt_iter>
-        <tt_struct></tt_struct>
+        <tt_iter>run_execute</tt_iter>
+        <tt_struct>output.adcValue,state.dawn</tt_struct>
     </task>
 </project>
