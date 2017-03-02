@@ -16,7 +16,7 @@
         <resource_ref name="Analog Pins" enabled="1">
             <io_usage name="ADC_INPUT" label="adc input pin">
                 <uattr name="Pin count">0</uattr>
-                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0000">DIO29</uattr>
                 <uattr name="Pin/0001"></uattr>
                 <uattr name="Pin/0002"></uattr>
                 <uattr name="Pin/0003"></uattr>
@@ -39,7 +39,7 @@
                 <uattr name="Configuration on uninitialization">-1</uattr>
                 <uattr name="Output value on initialization">0</uattr>
                 <uattr name="Pin count">0</uattr>
-                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0000">DIO7</uattr>
                 <uattr name="Pin/0001"></uattr>
                 <uattr name="Pin/0002"></uattr>
                 <uattr name="Pin/0003"></uattr>
@@ -60,7 +60,7 @@
                 <uattr name="Configuration on uninitialization">-1</uattr>
                 <uattr name="Output value on initialization">0</uattr>
                 <uattr name="Pin count">0</uattr>
-                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0000">DIO28</uattr>
                 <uattr name="Pin/0001"></uattr>
                 <uattr name="Pin/0002"></uattr>
                 <uattr name="Pin/0003"></uattr>
@@ -81,7 +81,7 @@
                 <uattr name="Configuration on uninitialization">-1</uattr>
                 <uattr name="Output value on initialization">0</uattr>
                 <uattr name="Pin count">0</uattr>
-                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0000">DIO30</uattr>
                 <uattr name="Pin/0001"></uattr>
                 <uattr name="Pin/0002"></uattr>
                 <uattr name="Pin/0003"></uattr>
