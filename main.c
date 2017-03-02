@@ -52,6 +52,9 @@
 /* Board Header files */
 #include "Board.h"
 
+#include "scif.h"
+#define BV(x)    (1 << (x))
+
 #define TASKSTACKSIZE   512
 
 Task_Struct task0Struct;
@@ -71,6 +74,19 @@ PIN_Config ledPinTable[] = {
     PIN_TERMINATE
 };
 
+
+
+void scCtrlReadyCallback(void)
+{
+
+} // scCtrlReadyCallback
+
+void scTaskAlertCallback(void)
+{
+
+} // scTaskAlertCallback
+
+
 /*
  *  ======== heartBeatFxn ========
  *  Toggle the Board_LED0. The Task_sleep is determined by arg0 which
@@ -78,6 +94,23 @@ PIN_Config ledPinTable[] = {
  */
 Void dusk2dawnFxn(UArg arg0, UArg arg1)
 {
+    // sc code initialization
+    // Initialize the Sensor Controller
+    scifOsalInit();
+    scifOsalRegisterCtrlReadyCallback(scCtrlReadyCallback);
+    scifOsalRegisterTaskAlertCallback(scTaskAlertCallback);
+    scifInit(&scifDriverSetup);
+
+    // Set the Sensor Controller task tick interval to 1 second
+    uint32_t rtc_Hz = 1;  // 1Hz RTC
+    scifStartRtcTicksNow(0x00010000 / rtc_Hz);
+
+    // Configure Sensor Controller tasks
+    scifTaskData.dusk2dawn.cfg.threshold = 600;
+
+    // Start Sensor Controller task
+    scifStartTasksNbl(BV(SCIF_DUSK2DAWN_TASK_ID));
+
     while (1) {
 
     }

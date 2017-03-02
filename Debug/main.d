@@ -180,6 +180,9 @@ main.obj: C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxwar
 main.obj: C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_17272/driverlib/rom.h
 main.obj: C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_17272/driverlib/gpio.h
 main.obj: C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_17272/inc/hw_gpio.h
+main.obj: ../scif.h
+main.obj: ../scif_framework.h
+main.obj: ../scif_osal_tirtos.h
 
 ../main.c: 
 C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/std.h: 
@@ -361,3 +364,6 @@ C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_
 C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_17272/driverlib/rom.h: 
 C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_17272/driverlib/gpio.h: 
 C:/ti/tirex-content/tirtos_cc13xx_cc26xx_2_21_00_06/products/cc26xxware_2_24_03_17272/inc/hw_gpio.h: 
+../scif.h: 
+../scif_framework.h: 
+../scif_osal_tirtos.h: 
