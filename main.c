@@ -87,6 +87,22 @@ void scTaskAlertCallback(void)
 } // scTaskAlertCallback
 
 
+void processTaskAlert(void)
+{
+    // Clear the ALERT interrupt source
+    scifClearAlertIntSource();
+
+    // Do SC Task processing here
+
+    // Fetch 'state.dawn' variable from SC
+    uint8_t dawn = scifTaskData.dusk2dawn.state.dawn;
+    // Set LED0 to the dawn variable
+    PIN_setOutputValue(ledPinHandle, Board_LED0, dawn);
+
+    // Acknowledge the ALERT event
+    scifAckAlertEvents();
+} // processTaskAlert
+
 /*
  *  ======== heartBeatFxn ========
  *  Toggle the Board_LED0. The Task_sleep is determined by arg0 which
