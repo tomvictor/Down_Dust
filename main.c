@@ -96,7 +96,8 @@ void scCtrlReadyCallback(void)
 
 void scTaskAlertCallback(void)
 {
-
+    // Post a SWI process
+    Swi_post(hSwiTaskAlert);
 } // scTaskAlertCallback
 
 
