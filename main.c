@@ -64,6 +64,19 @@ Char task0Stack[TASKSTACKSIZE];
 static PIN_Handle ledPinHandle;
 static PIN_State ledPinState;
 
+#include <ti/sysbios/knl/Swi.h>
+
+// SWI Task Alert
+Swi_Struct swiTaskAlert;
+Swi_Handle hSwiTaskAlert;
+
+void swiTaskAlertFxn(UArg a0, UArg a1)
+{
+    // Call process function
+    processTaskAlert();
+} // swiTaskAlertFxn
+
+
 /*
  * Application LED pin configuration table:
  *   - All LEDs board LEDs are off.
@@ -160,6 +173,14 @@ int main(void)
     }
 
     PIN_setOutputValue(ledPinHandle, Board_LED1, 1);
+
+    // SWI Initialization
+    Swi_Params swiParams;
+    Swi_Params_init(&swiParams);
+    swiParams.priority = 4; // Must be bigger than 1, which is the main task pri
+    Swi_construct(&swiTaskAlert, swiTaskAlertFxn, &swiParams, NULL);
+    hSwiTaskAlert = Swi_handle(&swiTaskAlert);
+
 
     /* Start BIOS */
     BIOS_start();
