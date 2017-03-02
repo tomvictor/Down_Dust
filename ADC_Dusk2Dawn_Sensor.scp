@@ -10,10 +10,22 @@
     <pattr name="Output directory">./</pattr>
     <task name="Dusk2Dawn">
         <desc><![CDATA[]]></desc>
-        <resource_ref name="ADC" enabled="0"/>
+        <resource_ref name="ADC" enabled="1"/>
         <resource_ref name="Analog Open-Drain Pins" enabled="0"/>
         <resource_ref name="Analog Open-Source Pins" enabled="0"/>
-        <resource_ref name="Analog Pins" enabled="0"/>
+        <resource_ref name="Analog Pins" enabled="1">
+            <io_usage name="ADC_INPUT" label="adc input pin">
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0001"></uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+            </io_usage>
+        </resource_ref>
         <resource_ref name="COMPA" enabled="0"/>
         <resource_ref name="COMPB" enabled="0"/>
         <resource_ref name="COMPB Event Trigger" enabled="0"/>
@@ -22,7 +34,71 @@
         <resource_ref name="Digital Input Pins" enabled="0"/>
         <resource_ref name="Digital Open-Drain Pins" enabled="0"/>
         <resource_ref name="Digital Open-Source Pins" enabled="0"/>
-        <resource_ref name="Digital Output Pins" enabled="0"/>
+        <resource_ref name="Digital Output Pins" enabled="1">
+            <io_usage name="GREEN_LED" label="green led pin">
+                <uattr name="Configuration on uninitialization">-1</uattr>
+                <uattr name="Output value on initialization">0</uattr>
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0001"></uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+                <uattr name="Pin/0008"></uattr>
+                <uattr name="Pin/0009"></uattr>
+                <uattr name="Pin/0010"></uattr>
+                <uattr name="Pin/0011"></uattr>
+                <uattr name="Pin/0012"></uattr>
+                <uattr name="Pin/0013"></uattr>
+                <uattr name="Pin/0014"></uattr>
+                <uattr name="Pin/0015"></uattr>
+            </io_usage>
+            <io_usage name="LOW" label="low pin">
+                <uattr name="Configuration on uninitialization">-1</uattr>
+                <uattr name="Output value on initialization">0</uattr>
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0001"></uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+                <uattr name="Pin/0008"></uattr>
+                <uattr name="Pin/0009"></uattr>
+                <uattr name="Pin/0010"></uattr>
+                <uattr name="Pin/0011"></uattr>
+                <uattr name="Pin/0012"></uattr>
+                <uattr name="Pin/0013"></uattr>
+                <uattr name="Pin/0014"></uattr>
+                <uattr name="Pin/0015"></uattr>
+            </io_usage>
+            <io_usage name="HIGH" label="high pin">
+                <uattr name="Configuration on uninitialization">-1</uattr>
+                <uattr name="Output value on initialization">0</uattr>
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000"></uattr>
+                <uattr name="Pin/0001"></uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+                <uattr name="Pin/0008"></uattr>
+                <uattr name="Pin/0009"></uattr>
+                <uattr name="Pin/0010"></uattr>
+                <uattr name="Pin/0011"></uattr>
+                <uattr name="Pin/0012"></uattr>
+                <uattr name="Pin/0013"></uattr>
+                <uattr name="Pin/0014"></uattr>
+                <uattr name="Pin/0015"></uattr>
+            </io_usage>
+        </resource_ref>
         <resource_ref name="GPIO Event Trigger" enabled="0"/>
         <resource_ref name="I2C Master" enabled="0">
             <rattr name="SCL frequency">0</rattr>
@@ -42,7 +118,7 @@
         </resource_ref>
         <resource_ref name="Peripheral Sharing" enabled="0"/>
         <resource_ref name="RTC Multi-Event Capture" enabled="0"/>
-        <resource_ref name="RTC-Based Execution Scheduling" enabled="0"/>
+        <resource_ref name="RTC-Based Execution Scheduling" enabled="1"/>
         <resource_ref name="SPI Chip Select" enabled="0"/>
         <resource_ref name="SPI Data Transfer" enabled="0">
             <rattr name="Bit rate">0</rattr>
@@ -57,7 +133,7 @@
                 <uattr name="SCLK pin/0000"></uattr>
             </io_usage>
         </resource_ref>
-        <resource_ref name="System CPU Alert" enabled="0"/>
+        <resource_ref name="System CPU Alert" enabled="1"/>
         <resource_ref name="TDC" enabled="0"/>
         <resource_ref name="Timer 0" enabled="0"/>
         <resource_ref name="Timer Event Trigger" enabled="0"/>
