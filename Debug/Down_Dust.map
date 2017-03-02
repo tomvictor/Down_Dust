@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.0                     
 ******************************************************************************
->> Linked Thu Mar 02 21:13:29 2017
+>> Linked Thu Mar 02 21:17:08 2017
 
 OUTPUT FILE NAME:   <Down_Dust.out>
 ENTRY POINT SYMBOL: "ResetISR"  address: 000026ad
@@ -230,7 +230,7 @@ section   page    origin      length       input sections
                   000028b0    00000030     driverlib.lib : setup_rom.obj (.text:NOROM_SetupSetAonRtcSubSecInc)
                   000028e0    00000030     drivers_cc26xxware.aem3 : PowerCC26XX.oem3 (.text:Power_releaseConstraint)
                   00002910    00000030                             : PowerCC26XX.oem3 (.text:Power_setConstraint)
-                  00002940    00000030     main.obj (.text:heartBeatFxn)
+                  00002940    00000030     main.obj (.text:dusk2dawnFxn)
                   00002970    00000030     empty_min_pem3.oem3 (.text:ti_sysbios_BIOS_atExitFunc__I)
                   000029a0    00000030     empty_min_pem3.oem3 (.text:ti_sysbios_BIOS_startFunc__I)
                   000029d0    00000030     rom_sysbios.aem3 : rom_sysbios.obj (.text:ti_sysbios_family_arm_cc26xx_Timer_setThreshold__I)
@@ -1107,7 +1107,7 @@ ti_sysbios_BIOS_setThreadType__E  $Tramp$TT$L$PI$$ti_sysbios_BIOS_setThreadType_
    1001c045     00002ffc     0000297c   empty_min_pem3.oem3 (.text:ti_sysbios_BIOS_atExitFunc__I)
                              00002e3e   empty_min_pem3.oem3 (.text:ti_sysbios_BIOS_exitFunc__I)
 ti_sysbios_knl_Task_sleep__E  $Tramp$TT$L$PI$$ti_sysbios_knl_Task_sleep__E
-   1001a96d     00003004     00002948   main.obj (.text:heartBeatFxn)
+   1001a96d     00003004     00002948   main.obj (.text:dusk2dawnFxn)
 xdc_runtime_System_exit__E  $Tramp$TT$L$PI$$xdc_runtime_System_exit__E
    1001c7d1     0000300c     000026d8   boot.aem3 : boot.oem3 (.text)
                              00002e44   empty_min_pem3.oem3 (.text:ti_sysbios_BIOS_exitFunc__I)
@@ -1325,7 +1325,7 @@ ffffffff  __c_args__
 ffffffff  binit                                                                     
 00002541  copy_in                                                                   
 20000c5c  driverlib_release_0_47020                                                 
-00002941  heartBeatFxn                                                              
+00002941  dusk2dawnFxn                                                              
 20000f10  ledPinTable                                                               
 000017ad  main                                                                      
 20000dbc  main_func_sp                                                              
@@ -2073,7 +2073,7 @@ address   name
 000028b1  NOROM_SetupSetAonRtcSubSecInc                                             
 000028e1  Power_releaseConstraint                                                   
 00002911  Power_setConstraint                                                       
-00002941  heartBeatFxn                                                              
+00002941  dusk2dawnFxn                                                              
 00002971  ti_sysbios_BIOS_atExitFunc__I                                             
 000029a1  ti_sysbios_BIOS_startFunc__I                                              
 000029d1  ti_sysbios_family_arm_cc26xx_Timer_setThreshold__I                        

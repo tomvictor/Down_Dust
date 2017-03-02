@@ -76,7 +76,7 @@ PIN_Config ledPinTable[] = {
  *  Toggle the Board_LED0. The Task_sleep is determined by arg0 which
  *  is configured for the heartBeat Task instance.
  */
-Void heartBeatFxn(UArg arg0, UArg arg1)
+Void dusk2dawnFxn(UArg arg0, UArg arg1)
 {
     while (1) {
         Task_sleep((UInt)arg0);
@@ -104,7 +104,7 @@ int main(void)
     taskParams.arg0 = 1000000 / Clock_tickPeriod;
     taskParams.stackSize = TASKSTACKSIZE;
     taskParams.stack = &task0Stack;
-    Task_construct(&task0Struct, (Task_FuncPtr)heartBeatFxn, &taskParams, NULL);
+    Task_construct(&task0Struct, (Task_FuncPtr)dusk2dawnFxn, &taskParams, NULL);
 
     /* Open LED pins */
     ledPinHandle = PIN_open(&ledPinState, ledPinTable);
