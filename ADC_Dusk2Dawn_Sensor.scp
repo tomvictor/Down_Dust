@@ -10,6 +10,9 @@
     <pattr name="Output directory">./</pattr>
     <task name="Dusk2Dawn">
         <desc><![CDATA[]]></desc>
+        <tattr name="cfg.threshold" desc="threshold value" type="dec" content="struct" scope="task" min="0" max="65535">0</tattr>
+        <tattr name="output.adcValue" type="dec" content="struct" scope="task" min="0" max="65535">0</tattr>
+        <tattr name="state.dawn" desc="state data structure for adc values" type="dec" content="struct" scope="task" min="0" max="65535">0</tattr>
         <resource_ref name="ADC" enabled="1"/>
         <resource_ref name="Analog Open-Drain Pins" enabled="0"/>
         <resource_ref name="Analog Open-Source Pins" enabled="0"/>
@@ -147,8 +150,43 @@
             </io_usage>
         </resource_ref>
         <sccode name="event0"><![CDATA[]]></sccode>
-        <sccode name="execute"><![CDATA[]]></sccode>
-        <sccode name="initialize"><![CDATA[]]></sccode>
+        <sccode name="execute"><![CDATA[// Enable the ADC
+adcEnableSync(ADC_REF_FIXED, ADC_SAMPLE_TIME_2P7_US, ADC_TRIGGER_MANUAL);
+
+// Sample the analog sensor
+adcGenManualTrigger();
+adcReadFifo(output.adcValue);
+
+// Disable the ADC
+adcDisable();
+
+U16 oldState = state.dawn;
+if (out.adcValue > cfg.threshold) {
+    state.dawn = 1; // Dawn
+    gpioClearOutput(AUXIO_O_GREEN_LED);
+} else {
+    state.dawn = 0; // Dusk
+    gpioSetOutput(AUXIO_O_GREEN_LED);
+}
+
+if (oldState != state.dawn) {
+    // Signal the application processor.
+    fwGenAlertInterrupt();
+}
+
+// Schedule the next execution
+fwScheduleTask(1);]]></sccode>
+        <sccode name="initialize"><![CDATA[// Set `DIO28` High
+gpioSetOutput(AUXIO_O_HIGH);
+
+// Set `DIO30` Low
+gpioClearOutput(AUXIO_O_LOW);
+
+// Select ADC input
+adcSelectGpioInput(AUXIO_A_ADC_INPUT);
+
+// Schedule the first execution
+fwScheduleTask(1);]]></sccode>
         <sccode name="terminate"><![CDATA[]]></sccode>
         <tt_iter></tt_iter>
         <tt_struct></tt_struct>
